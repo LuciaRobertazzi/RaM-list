@@ -1,6 +1,6 @@
-const getAllCharacters = async () => {
+const getAllCharacters = async (page?: number) => {
   const response = await fetch(
-    "https://rickandmortyapi.com/api/character/?page=1"
+    `https://rickandmortyapi.com/api/character/?page=${page || 1}`
   );
   const data = await response.json();
   return data;

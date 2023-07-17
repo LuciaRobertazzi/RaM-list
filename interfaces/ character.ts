@@ -1,5 +1,5 @@
 interface character {
-  id: string;
+  id: number;
   name: string;
   status: string;
   species: string;
