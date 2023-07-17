@@ -30,8 +30,16 @@ export const CharactersList = () => {
       <Title>Character</Title>
       <ScrollView height={"380px"}>
         <List
+          grid={{
+            gutter: 4,
+            xs: 1,
+            sm: 1,
+            md: 1,
+            lg: 1,
+            xl: 2,
+            xxl: 2,
+          }}
           dataSource={characters}
-          grid={{ gutter: 4, column: 2 }}
           renderItem={(item) => (
             <List.Item key={item.id}>
               {/* TODO: Add logic for the selected item */}
