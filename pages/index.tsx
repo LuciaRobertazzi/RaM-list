@@ -1,3 +1,5 @@
+import { CharactersList, EpisodesList } from "@/components";
+import { Row, Col, Divider } from "antd";
 import Head from "next/head";
 
 export default function Home() {
@@ -10,7 +12,29 @@ export default function Home() {
         {/* TODO: Add favicon */}
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main></main>
+      <main>
+        <div style={{ backgroundColor: "white" }}>
+          <div style={{ display: "flex", flexDirection: "row" }}>
+            <CharactersList />
+            <Divider type="vertical" style={{ height: "500px" }} />
+            <CharactersList />
+          </div>
+          <Divider />
+          <Row style={{ width: "100%" }} wrap gutter={16}>
+            <Col span={8}>
+              <EpisodesList />
+            </Col>
+
+            <Col span={8}>
+              <EpisodesList />
+            </Col>
+
+            <Col span={8}>
+              <EpisodesList />
+            </Col>
+          </Row>
+        </div>
+      </main>
     </>
   );
 }
