@@ -81,7 +81,6 @@ const Home = ({
 };
 
 Home.getInitialProps = async () => {
-  console.log("holi");
   const data = await getAllCharacters();
   return {
     charactersToRender: data.results,
