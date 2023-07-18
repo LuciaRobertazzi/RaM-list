@@ -5,8 +5,14 @@ import { CharacterCard } from "./CharacterCard";
 import { ScrollView } from "@/components";
 
 const { Title } = Typography;
-export const CharactersList = () => {
-  const [characters, setCharacters] = useState<character[] | undefined>(
+export const CharactersList = ({
+  selectedCharacter,
+  setCharacter,
+}: {
+  selectedCharacter: Character | null;
+  setCharacter: (character: Character | null) => void;
+}) => {
+  const [characters, setCharacters] = useState<Character[] | undefined>(
     undefined
   );
   const [total, setTotal] = useState<number>(0);
@@ -42,8 +48,11 @@ export const CharactersList = () => {
           dataSource={characters}
           renderItem={(item) => (
             <List.Item key={item.id}>
-              {/* TODO: Add logic for the selected item */}
-              <CharacterCard item={item} selected={item.id === 6} />{" "}
+              <CharacterCard
+                onPress={setCharacter}
+                item={item}
+                selected={item.id === selectedCharacter?.id}
+              />
             </List.Item>
           )}
         />

@@ -6,9 +6,11 @@ const { Text } = Typography;
 export const CharacterCard = ({
   item,
   selected,
+  onPress,
 }: {
-  item: character;
+  item: Character;
   selected: boolean;
+  onPress: (character: Character | null) => void;
 }) => {
   return (
     <Card
@@ -21,7 +23,7 @@ export const CharacterCard = ({
       }}
       size="small"
       bordered={selected}
-      onClick={() => console.log("selected", item.id)}
+      onClick={() => (selected ? onPress(null) : onPress(item))}
     >
       <div
         style={{

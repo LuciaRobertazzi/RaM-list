@@ -1,4 +1,4 @@
-interface episode {
+type Episode = {
   id: string;
   name: string;
   air_date: string;
@@ -6,4 +6,4 @@ interface episode {
   characters: string[];
   url: string;
   created: string;
-}
+};

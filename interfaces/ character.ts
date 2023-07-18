@@ -1,4 +1,4 @@
-interface character {
+type Character = {
   id: number;
   name: string;
   status: string;
@@ -17,4 +17,4 @@ interface character {
   episode: string[];
   url: string;
   created: string;
-}
+};
