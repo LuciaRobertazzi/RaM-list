@@ -29,26 +29,38 @@ export default function Home() {
               selectedCharacter={firstCharacterId}
               disabledCharacter={secondCharacterId}
               setCharacter={setFirstCharacter}
+              description="#1"
             />
             <Divider type="vertical" style={{ height: "500px" }} />
             <CharactersList
               selectedCharacter={secondCharacterId}
               disabledCharacter={firstCharacterId}
               setCharacter={setSecondCharacter}
+              description="#2"
             />
           </div>
           <Divider />
           <Row style={{ width: "100%" }} wrap gutter={16}>
             <Col span={8}>
-              <EpisodesList episodes={firstCharacterEpisodes} />
+              <EpisodesList
+                title="Character #1 - Only Episodes"
+                episodes={firstCharacterEpisodes}
+              />
             </Col>
 
             <Col span={8}>
-              <EpisodesList episodes={sharedEpisodes} />
+              <EpisodesList
+                title="Characters #1 & #2 - Shared Episodes"
+                episodes={sharedEpisodes}
+                tooltipText="Select both characters to view results."
+              />
             </Col>
 
             <Col span={8}>
-              <EpisodesList episodes={secondCharacterEpisodes} />
+              <EpisodesList
+                title="Character #2 - Only Episodes"
+                episodes={secondCharacterEpisodes}
+              />
             </Col>
           </Row>
         </div>

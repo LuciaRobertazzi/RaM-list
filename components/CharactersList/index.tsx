@@ -10,10 +10,12 @@ export const CharactersList = ({
   selectedCharacter,
   disabledCharacter,
   setCharacter,
+  description,
 }: {
   selectedCharacter?: number;
   disabledCharacter?: number;
   setCharacter: (character: Character | null) => void;
+  description: string;
 }) => {
   const [characters, setCharacters] = useState<Character[] | undefined>(
     undefined
@@ -36,7 +38,7 @@ export const CharactersList = ({
 
   return (
     <div style={{ width: "48vw" }}>
-      <Title>Character</Title>
+      <Title level={2}>Character {description}</Title>
       <ScrollView height={"380px"}>
         <List
           grid={{
