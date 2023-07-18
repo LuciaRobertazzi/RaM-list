@@ -5,11 +5,13 @@ const { Text } = Typography;
 
 export const CharacterCard = ({
   item,
-  selected,
+  isSelected,
   onPress,
+  isDisabled,
 }: {
   item: Character;
-  selected: boolean;
+  isSelected: boolean;
+  isDisabled: boolean;
   onPress: (character: Character | null) => void;
 }) => {
   return (
@@ -18,12 +20,16 @@ export const CharacterCard = ({
         width: 300,
         display: "flex",
         justifyContent: "row",
-        cursor: "pointer",
-        backgroundColor: `${selected ? "#1677ff31" : "white"}`,
+        cursor: isDisabled ? "not-allowed" : "pointer",
+        backgroundColor: `${isSelected ? "#1677ff31" : "white"}`,
       }}
       size="small"
-      bordered={selected}
-      onClick={() => (selected ? onPress(null) : onPress(item))}
+      bordered={isSelected}
+      onClick={() => {
+        if (!isDisabled) {
+          isSelected ? onPress(null) : onPress(item);
+        }
+      }}
     >
       <div
         style={{
@@ -37,9 +43,13 @@ export const CharacterCard = ({
           size={64}
           src={<Image width={24} height={24} src={item.image} alt="avatar" />}
         />
-        <div>
-          <Text>{item.name}</Text>
-          <Text>{`${item.status} - ${item.species}`}</Text>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <Text style={{ fontWeight: "bold" }} disabled={isDisabled}>
+            {item.name}
+          </Text>
+          <Text
+            disabled={isDisabled}
+          >{`${item.status} - ${item.species}`}</Text>
         </div>
       </div>
     </Card>

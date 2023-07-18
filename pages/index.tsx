@@ -27,11 +27,13 @@ export default function Home() {
           <div style={{ display: "flex", flexDirection: "row" }}>
             <CharactersList
               selectedCharacter={firstCharacter}
+              disabledCharacter={secondCharacter}
               setCharacter={setFirstCharacter}
             />
             <Divider type="vertical" style={{ height: "500px" }} />
             <CharactersList
               selectedCharacter={secondCharacter}
+              disabledCharacter={firstCharacter}
               setCharacter={setSecondCharacter}
             />
           </div>

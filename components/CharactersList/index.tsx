@@ -7,9 +7,11 @@ import { ScrollView } from "@/components";
 const { Title } = Typography;
 export const CharactersList = ({
   selectedCharacter,
+  disabledCharacter,
   setCharacter,
 }: {
   selectedCharacter: Character | null;
+  disabledCharacter: Character | null;
   setCharacter: (character: Character | null) => void;
 }) => {
   const [characters, setCharacters] = useState<Character[] | undefined>(
@@ -49,9 +51,10 @@ export const CharactersList = ({
           renderItem={(item) => (
             <List.Item key={item.id}>
               <CharacterCard
+                isDisabled={item.id === disabledCharacter?.id}
                 onPress={setCharacter}
                 item={item}
-                selected={item.id === selectedCharacter?.id}
+                isSelected={item.id === selectedCharacter?.id}
               />
             </List.Item>
           )}
