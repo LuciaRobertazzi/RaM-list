@@ -1,40 +1,34 @@
 import { List, Typography, Pagination } from "antd";
 import { useEffect, useState } from "react";
-import { getAllCharacters } from "@/services/rickAndMortyServices";
+import { getAllCharacters } from "@/services";
 import { CharacterCard } from "./CharacterCard";
 import { ScrollView } from "@/components";
 
 const { Title } = Typography;
 
-export const CharactersList = ({
-  selectedCharacter,
-  disabledCharacter,
-  setCharacter,
-  description,
-}: {
+interface CharacterListProps {
+  initialData: Character[];
+  totalOfCharacters: number;
   selectedCharacter?: number;
   disabledCharacter?: number;
   setCharacter: (character: Character | null) => void;
   description: string;
-}) => {
-  const [characters, setCharacters] = useState<Character[] | undefined>(
-    undefined
-  );
-  const [total, setTotal] = useState<number>(0);
-  const getInitialData = async () => {
-    const data = await getAllCharacters();
-    setCharacters(data.results);
-    setTotal(data.info.count);
-  };
+}
+
+export const CharactersList = ({
+  initialData,
+  totalOfCharacters,
+  selectedCharacter,
+  disabledCharacter,
+  setCharacter,
+  description,
+}: CharacterListProps) => {
+  const [characters, setCharacters] = useState<Character[]>(initialData);
 
   const handleChangePage = async (pageNumber: number) => {
     const data = await getAllCharacters(pageNumber);
     setCharacters(data.results);
   };
-
-  useEffect(() => {
-    getInitialData();
-  }, []);
 
   return (
     <div style={{ width: "48vw" }}>
@@ -64,13 +58,13 @@ export const CharactersList = ({
         />
       </ScrollView>
 
-      {total && (
+      {totalOfCharacters && (
         <Pagination
           style={{ marginTop: 8 }}
           pageSize={20}
           defaultCurrent={1}
           showSizeChanger={false}
-          total={total}
+          total={totalOfCharacters}
           onChange={handleChangePage}
         />
       )}

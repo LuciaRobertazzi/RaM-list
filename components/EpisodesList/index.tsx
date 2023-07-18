@@ -2,15 +2,17 @@ import { List, Typography } from "antd";
 import { ScrollView, InformationIcon } from "@/components";
 const { Title } = Typography;
 
+interface EpisodesListProps {
+  episodes: Episode[] | [];
+  title: string;
+  tooltipText?: string;
+}
+
 export const EpisodesList = ({
   episodes,
   title,
   tooltipText,
-}: {
-  episodes: Episode[] | null;
-  title: string;
-  tooltipText?: string;
-}) => {
+}: EpisodesListProps) => {
   return (
     <div>
       <Title level={3}>

@@ -1,4 +1,4 @@
-import { getEpisodesById } from "@/services/rickAndMortyServices";
+import { getEpisodesById } from "@/services";
 import React, { useState } from "react";
 import { createContext } from "react";
 

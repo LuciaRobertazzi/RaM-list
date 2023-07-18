@@ -3,17 +3,19 @@ import Image from "next/image";
 
 const { Text } = Typography;
 
+interface CharacterCardProps {
+  item: Character;
+  isSelected: boolean;
+  isDisabled: boolean;
+  onPress: (character: Character | null) => void;
+}
+
 export const CharacterCard = ({
   item,
   isSelected,
   onPress,
   isDisabled,
-}: {
-  item: Character;
-  isSelected: boolean;
-  isDisabled: boolean;
-  onPress: (character: Character | null) => void;
-}) => {
+}: CharacterCardProps) => {
   return (
     <Card
       style={{

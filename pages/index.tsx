@@ -1,10 +1,17 @@
 import { CharactersList, EpisodesList } from "@/components";
 import { EpisodesContext } from "@/contexts/EpisodesProvider";
+import { getAllCharacters } from "@/services";
 import { Row, Col, Divider } from "antd";
 import Head from "next/head";
 import { useContext } from "react";
 
-export default function Home() {
+const Home = ({
+  charactersToRender,
+  totalOfCharacters,
+}: {
+  charactersToRender: Character[];
+  totalOfCharacters: number;
+}) => {
   const {
     firstCharacterEpisodes,
     secondCharacterEpisodes,
@@ -30,6 +37,8 @@ export default function Home() {
               disabledCharacter={secondCharacterId}
               setCharacter={setFirstCharacter}
               description="#1"
+              initialData={charactersToRender}
+              totalOfCharacters={totalOfCharacters}
             />
             <Divider type="vertical" style={{ height: "500px" }} />
             <CharactersList
@@ -37,6 +46,8 @@ export default function Home() {
               disabledCharacter={firstCharacterId}
               setCharacter={setSecondCharacter}
               description="#2"
+              initialData={charactersToRender}
+              totalOfCharacters={totalOfCharacters}
             />
           </div>
           <Divider />
@@ -67,4 +78,15 @@ export default function Home() {
       </main>
     </>
   );
-}
+};
+
+Home.getInitialProps = async () => {
+  console.log("holi");
+  const data = await getAllCharacters();
+  return {
+    charactersToRender: data.results,
+    totalOfCharacters: data.info.count,
+  };
+};
+
+export default Home;
