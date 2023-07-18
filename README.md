@@ -1,8 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Rick And Morty - Challenge
+
+Thanks for taking the time to read my code, here I am just trying to do my best so if you have any good ideas to improve my code please let me know.
 
 ## Getting Started
 
-First, run the development server:
+### Clone the Repository
+
+To get started with this project, you'll need to clone it to your local machine. You can do this using the following steps:
+
+1. Copy the Repository URL: Click on the "Code" button at the top right of this repository page. In the dropdown, click on the clipboard icon to copy the repository URL.
+
+2. Open Terminal (Command Prompt): Open your terminal or command prompt on your local machine.
+
+3. Navigate to the Directory: Choose a directory on your computer where you want to store the project, and use the cd command to navigate to that directory. For example:
+
+```bash
+cd /path/to/your/directory
+```
+4. Clone the Repository: Use the git clone command to clone the repository to your local machine. Replace your-username and your-repository with your actual GitHub username and repository name:
+
+```bash
+git clone https://github.com/your-username/your-repository.git
+```
+
+5. Confirm Cloning: After running the above command, you should see the repository being cloned to your local machine. Once the process is complete, you'll have a local copy of the project ready for use.
+
+Now you have successfully cloned the repository to your local machine! You can start working on the project or making changes to the code.
+
+### Installation
+
+#### With npm:
+1. Make sure you have Node.js and npm installed on your machine. You can download them from the official website: https://nodejs.org/
+2. Open your terminal or command prompt.
+3. Navigate to your project directory.
+4. Install the project dependencies using npm:
+
+
+```bash
+npm install
+```
+
+#### With yarn:
+1. Make sure you have Node.js and yarn installed on your machine. You can download yarn from the official website: https://yarnpkg.com/
+2. Open your terminal or command prompt.
+3. Navigate to your project directory.
+4. Install the project dependencies using yarn:
+
+
+```bash
+yarn install
+```
+
+
+### Run the development server:
 
 ```bash
 npm run dev
@@ -13,26 +63,3 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
