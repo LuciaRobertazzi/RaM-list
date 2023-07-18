@@ -5,13 +5,14 @@ import { CharacterCard } from "./CharacterCard";
 import { ScrollView } from "@/components";
 
 const { Title } = Typography;
+
 export const CharactersList = ({
   selectedCharacter,
   disabledCharacter,
   setCharacter,
 }: {
-  selectedCharacter: Character | null;
-  disabledCharacter: Character | null;
+  selectedCharacter?: number;
+  disabledCharacter?: number;
   setCharacter: (character: Character | null) => void;
 }) => {
   const [characters, setCharacters] = useState<Character[] | undefined>(
@@ -51,10 +52,10 @@ export const CharactersList = ({
           renderItem={(item) => (
             <List.Item key={item.id}>
               <CharacterCard
-                isDisabled={item.id === disabledCharacter?.id}
+                isDisabled={item.id === disabledCharacter}
                 onPress={setCharacter}
                 item={item}
-                isSelected={item.id === selectedCharacter?.id}
+                isSelected={item.id === selectedCharacter}
               />
             </List.Item>
           )}

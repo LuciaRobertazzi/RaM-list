@@ -1,7 +1,7 @@
 type EpisodesContextType = {
-  firstCharacterEpisodes: Episode[] | null;
-  secondCharacterEpisodes: Episode[] | null;
-  sharedEpisodes: Episode[] | null;
+  firstCharacterEpisodes: Episode[] | [];
+  secondCharacterEpisodes: Episode[] | [];
+  sharedEpisodes: Episode[] | [];
   firstCharacterId?: number;
   setFirstCharacter: (character: Character | null) => void;
   secondCharacterId?: number;

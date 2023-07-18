@@ -9,9 +9,9 @@ export default function Home() {
     firstCharacterEpisodes,
     secondCharacterEpisodes,
     sharedEpisodes,
-    firstCharacter,
+    firstCharacterId,
     setFirstCharacter,
-    secondCharacter,
+    secondCharacterId,
     setSecondCharacter,
   } = useContext(EpisodesContext);
   return (
@@ -26,14 +26,14 @@ export default function Home() {
         <div style={{ backgroundColor: "white" }}>
           <div style={{ display: "flex", flexDirection: "row" }}>
             <CharactersList
-              selectedCharacter={firstCharacter}
-              disabledCharacter={secondCharacter}
+              selectedCharacter={firstCharacterId}
+              disabledCharacter={secondCharacterId}
               setCharacter={setFirstCharacter}
             />
             <Divider type="vertical" style={{ height: "500px" }} />
             <CharactersList
-              selectedCharacter={secondCharacter}
-              disabledCharacter={firstCharacter}
+              selectedCharacter={secondCharacterId}
+              disabledCharacter={firstCharacterId}
               setCharacter={setSecondCharacter}
             />
           </div>
